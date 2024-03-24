@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four Sections Layout</title>
+    <style>
+        body, html {
+            background-image: url('/static/paper.jpg');
+            background-size: cover; /* Optional: Adjust background size */
+            /* Add more background properties as needed */
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .top-section {
+            padding: 20px;
+            border: 1px solid #000;
+            height: 20vh; /* Set height to 20% of the viewport height */
+            box-sizing: border-box; /* Ensure padding is included in height calculation */
+        }
+        .vertical-sections {
+            display: flex;
+            height: 80vh; /* Set height to 80% of the viewport height */
+            box-sizing: border-box; /* Ensure padding is included in height calculation */
+        }
+        .left-section, .middle-section, .right-section {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #000;
+            box-sizing: border-box; /* Ensure padding is included in height calculation */
+        }
+        .middle-section {
+            flex: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-section">
+        <h1>This is the Top Section</h1>
+        <!-- Add content for the top section here -->
+    </div>
+    <div class="vertical-sections">
+        <div class="left-section">
+            <h2>This is the Left Section</h2>
+            <!-- Add content for the left section here -->
+        </div>
+        <div class="middle-section">
+            <h2>This is the Middle Section</h2>
+            <!-- Add content for the middle section here -->
+        </div>
+        <div class="right-section">
+            <h2>This is the Right Section</h2>
+            <!-- Add content for the right section here -->
+        </div>
+    </div>
+</body>
+</html>
