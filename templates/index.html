@@ -24,14 +24,29 @@
             height: 80vh; /* Set height to 80% of the viewport height */
             box-sizing: border-box; /* Ensure padding is included in height calculation */
         }
-        .left-section, .middle-section, .right-section {
+        .left-section {
             flex: 1;
-            padding: 20px;
             border: 1px solid #000;
-            box-sizing: border-box; /* Ensure padding is included in height calculation */
+            display: flex;
+            flex-direction: column;
         }
+
         .middle-section {
             flex: 2;
+            border: 1px solid #000;
+        }
+
+        .right-section {
+            flex: 1;
+            border: 1px solid #000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .left-inner-section, .right-inner-section {
+            flex: 1;
+            border: 1px solid #000;
+            margin: 0; /* Remove margin to eliminate spacing between inner sections */
         }
     </style>
 </head>
@@ -42,16 +57,36 @@
     </div>
     <div class="vertical-sections">
         <div class="left-section">
-            <h2>This is the Left Section</h2>
-            <!-- Add content for the left section here -->
+            <div class="left-inner-section">
+                <h2>Left Section 1</h2>
+                <!-- Add content for left inner section 1 here -->
+            </div>
+            <div class="left-inner-section">
+                <h2>Left Section 2</h2>
+                <!-- Add content for left inner section 2 here -->
+            </div>
+            <div class="left-inner-section">
+                <h2>Left Section 3</h2>
+                <!-- Add content for left inner section 3 here -->
+            </div>
+            <div class="left-inner-section">
+                <h2>Left Section 4</h2>
+                <!-- Add content for left inner section 4 here -->
+            </div>
         </div>
         <div class="middle-section">
             <h2>This is the Middle Section</h2>
             <!-- Add content for the middle section here -->
         </div>
         <div class="right-section">
-            <h2>This is the Right Section</h2>
-            <!-- Add content for the right section here -->
+            <div class="right-inner-section">
+                <h2>Right Section 1</h2>
+                <!-- Add content for right inner section 1 here -->
+            </div>
+            <div class="right-inner-section">
+                <h2>Right Section 2</h2>
+                <!-- Add content for right inner section 2 here -->
+            </div>
         </div>
     </div>
 </body>
