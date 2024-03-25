@@ -86,6 +86,14 @@
             border: 1px solid #000;
             margin: 0; /* Remove margin to eliminate spacing between inner sections */
         }
+        .right-inner-section ul {
+            margin: 0;
+            padding: 0 20px;
+        }
+        .full-width {
+            width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
@@ -109,19 +117,19 @@
         <div class="left-section">
             <div class="left-inner-section">
                 <h3>Weather</h3>
-                <p>Today's weather forecast predicts sunny skies with a high of 75°F and a gentle breeze from the northwest. Expect clear conditions throughout the day, perfect for outdoor activities.</p>
+                <p>Today's weather forecast predicts sunny skies with a high of 75°F and a gentle breeze from the northwest.</p>
             </div>
             <div class="left-inner-section">
                 <h3>Stocks</h3>
-                <p>In financial news, stock markets showed mixed results today. The Dow Jones Industrial Average rose by 50 points, reaching a new record high, while the S&P 500 and Nasdaq Composite both experienced slight declines. Investors remain cautious amid ongoing economic uncertainty.</p>
+                <p>In financial news, stock markets showed mixed results today. The Dow Jones Industrial Average rose by 50 points, reaching a new record high, while the S&P 500 and Nasdaq Composite both experienced slight declines.</p>
             </div>
             <div class="left-inner-section">
                 <h3>Sports</h3>
-                <p>The local sports team secured a thrilling victory last night, defeating their rivals in a nail-biting match that went into overtime. Fans celebrated the team's success with cheers and applause, as the players demonstrated exceptional skill and determination on the field.</p>
+                <p>The local sports team secured a thrilling victory last night, defeating their rivals in a nail-biting match that went into overtime.</p>
             </div>
             <div class="left-inner-section">
                 <h3>Politics</h3>
-                <p>In political news, lawmakers have reached a bipartisan agreement on a new infrastructure bill aimed at modernizing the country's transportation networks and addressing critical infrastructure needs. The proposed legislation has received widespread support from both sides of the aisle and is expected to be passed into law.</p>
+                <p>In political news, lawmakers have reached a bipartisan agreement on a new infrastructure bill aimed at modernizing the country's transportation networks and addressing critical infrastructure needs.</p>
             </div>
         </div>
         <div class="middle-section">
@@ -146,12 +154,17 @@
         </div>
         <div class="right-section">
             <div class="right-inner-section">
-                <h3>Sidebar Headline #1</h3>
-                <p>In other news, researchers have made a significant breakthrough in renewable energy technology, unveiling a revolutionary solar panel design that promises to increase efficiency by 50%. This innovation could have far-reaching implications for combating climate change and reducing reliance on fossil fuels.</p>
+                <h3>In other news, <br></h3>
+                <ul>
+                    <li>Local Community Celebrates Record-Breaking Charity Event</li>
+                    <li>New Study Reveals Surprising Benefits of Daily Meditation</li>
+                    <li>Unconventional Artist Transforms Trash into Stunning Sculptures</li>
+                    <li>Innovative Startup Introduces Revolutionary Clean Energy Solution</li>
+                    <li>Adventurous Traveler Discovers Hidden Gem in Remote Wilderness</li>
+                </ul>
             </div>
             <div class="right-inner-section">
-                <h3>Sidebar Headline #2</h3>
-                <p>The latest developments in space exploration have captivated the world as scientists announce the discovery of a potentially habitable exoplanet located within the 'Goldilocks zone' of a nearby star system. This exciting finding raises new questions about the possibility of extraterrestrial life and the future of interstellar travel.</p>
+                <img src="\static\advert.jpg" class="full-width">
             </div>
         </div>
     </div>
