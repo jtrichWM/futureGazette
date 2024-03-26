@@ -7,8 +7,7 @@
     <style>
         body, html {
             background-image: url('/static/paper.jpg');
-            background-size: cover; /* Optional: Adjust background size */
-            /* Add more background properties as needed */
+            background-size: cover;
             margin: 0;
             padding: 0;
             height: 100%;
@@ -19,8 +18,8 @@
         }
         .top-section {
             display: flex;
-            height: 20vh; /* Set height to 20% of the viewport height */
-            box-sizing: border-box; /* Ensure padding is included in height calculation */
+            height: 20vh;
+            box-sizing: border-box;
             overflow: hidden;
             padding: 0 10px;
             border: 1px solid #000;
@@ -34,12 +33,20 @@
         }
         .date-section {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
             text-align: right;
+        }
+        .date-inner-section {
+            padding: 0 10px;
+            flex: 1;
+            margin: 0;
         }
         .themecost-section {
             display: flex;
-            height: 5vh; /* Set height to 80% of the viewport height */
-            box-sizing: border-box; /* Ensure padding is included in height calculation */
+            height: 5vh;
+            box-sizing: border-box;
         }
         .theme-section {
             flex: 6;
@@ -52,8 +59,8 @@
         }
         .vertical-sections {
             display: flex;
-            height: 75vh; /* Set height to 80% of the viewport height */
-            box-sizing: border-box; /* Ensure padding is included in height calculation */
+            height: 75vh;
+            box-sizing: border-box;
         }
         .left-section {
             flex: 1;
@@ -62,7 +69,6 @@
             flex-direction: column;
             overflow: hidden;
         }
-
         .middle-section {
             padding: 0 10px;
             flex: 2;
@@ -70,7 +76,7 @@
             overflow: hidden;
         }
         .middle-section h1 {
-            font-size: 4em;
+            font-size: 2.5em;
         }
         .right-section {
             flex: 1;
@@ -79,12 +85,11 @@
             flex-direction: column;
             overflow: hidden;
         }
-
         .left-inner-section, .right-inner-section {
             padding: 0 10px;
             flex: 1;
             border: 1px solid #000;
-            margin: 0; /* Remove margin to eliminate spacing between inner sections */
+            margin: 0;
         }
         .right-inner-section ul {
             margin: 0;
@@ -102,7 +107,9 @@
             <h1>The Future Gazette</h1>
         </div>
         <div class="date-section">
-            <h2>Sunday, March 24, 2024</h2>
+            <div class="date-inner-section"><h2>DoW,</h2></div>
+            <div class="date-inner-section"><h2>Month Day,</h2></div>
+            <div class="date-inner-section"><h2>Year</h2></div>
         </div>
     </div>
     <div class="themecost-section">
@@ -117,51 +124,36 @@
         <div class="left-section">
             <div class="left-inner-section">
                 <h3>Weather</h3>
-                <p>Today's weather forecast predicts sunny skies with a high of 75°F and a gentle breeze from the northwest.</p>
+                <p>{{ weather_content }}</p>
             </div>
             <div class="left-inner-section">
                 <h3>Stocks</h3>
-                <p>In financial news, stock markets showed mixed results today. The Dow Jones Industrial Average rose by 50 points, reaching a new record high, while the S&P 500 and Nasdaq Composite both experienced slight declines.</p>
+                <p>{{ stocks_content }}</p>
             </div>
             <div class="left-inner-section">
                 <h3>Sports</h3>
-                <p>The local sports team secured a thrilling victory last night, defeating their rivals in a nail-biting match that went into overtime.</p>
+                <p>{{ sports_content }}</p>
             </div>
             <div class="left-inner-section">
                 <h3>Politics</h3>
-                <p>In political news, lawmakers have reached a bipartisan agreement on a new infrastructure bill aimed at modernizing the country's transportation networks and addressing critical infrastructure needs.</p>
+                <p>{{ politics_content }}</p>
             </div>
         </div>
         <div class="middle-section">
-            <h1>New Species Discovery</h1>
-            <p>Deep beneath the vast expanse of the ocean's surface lies a world shrouded in mystery and wonder, a realm where the sun's rays struggle to penetrate and darkness reigns supreme. For centuries, the depths of the ocean have captivated the imagination of explorers and scientists alike, beckoning them to uncover its secrets and unlock the mysteries that lie hidden beneath the waves.
-
-                In the annals of maritime history, tales of exploration and discovery have long been woven into the fabric of human civilization. From the intrepid voyages of ancient mariners navigating by the stars to the groundbreaking expeditions of modern-day oceanographers equipped with state-of-the-art technology, the quest to explore the ocean's depths has been an enduring testament to humanity's insatiable curiosity and thirst for knowledge.
-                
-                One such expedition, led by a team of renowned marine biologists and oceanographers, set out on a daring mission to explore the uncharted depths of the Mariana Trench, the deepest part of the world's oceans. Equipped with a cutting-edge research vessel outfitted with advanced sonar mapping systems and remotely operated underwater vehicles (ROVs), the team embarked on a journey into the unknown, braving the perils of the deep in search of new discoveries.
-                
-                As the research vessel descended into the abyssal depths of the trench, the team marveled at the otherworldly landscape that unfolded before them. Towering underwater mountains and volcanic vents dotted the ocean floor, teeming with life forms that had evolved to thrive in the extreme conditions of the deep sea. Strange and exotic creatures, some never before seen by human eyes, glided gracefully through the frigid waters, their bioluminescent glow illuminating the darkness like celestial stars in a midnight sky.
-                
-                But amidst the breathtaking beauty of the deep, danger lurked in the shadows. As the ROVs ventured deeper into the abyss, they encountered fierce predators and treacherous underwater currents that threatened to engulf them at every turn. Yet, undeterred by the challenges they faced, the team pressed on, driven by a relentless desire to push the boundaries of human knowledge and understanding.
-                
-                With each passing day, new discoveries were made, and the secrets of the deep began to unfold before their eyes. Rare and elusive species were cataloged and studied, shedding light on the intricate web of life that thrived in the most remote corners of the ocean. Geological formations and hydrothermal vents revealed clues to the Earth's ancient past, offering glimpses into the forces that shaped our planet millions of years ago.
-                
-                But perhaps the greatest discovery of all came in the form of a remarkable underwater oasis hidden deep within the heart of the trench. Dubbed the "Garden of the Deep," this pristine ecosystem was a veritable paradise teeming with vibrant coral reefs, colorful fish, and an abundance of marine life unlike anything the team had ever seen. Protected from the harsh conditions of the surrounding abyss by a natural barrier, the Garden of the Deep stood as a testament to the resilience and adaptability of life in even the harshest of environments.
-                
-                As the expedition drew to a close and the research vessel began its ascent to the surface, the team reflected on the incredible journey they had undertaken and the discoveries they had made along the way. Though their quest to unravel the mysteries of the deep was far from over, they departed with a newfound appreciation for the awe-inspiring beauty and boundless complexity of the ocean's depths.
-                
-                And so, as the sun dipped below the horizon and the waves gently lapped against the hull of the research vessel, the legacy of exploration and discovery lived on, guiding future generations of adventurers and scientists to boldly venture where few had dared to tread—the vast and wondrous expanse of the world's oceans.</p>
+            <h1>{{ main_story_headline }}</h1>
+            <p>{{ main_story_body }}</p>
         </div>
         <div class="right-section">
             <div class="right-inner-section">
                 <h3>In other news, <br></h3>
-                <ul>
-                    <li>Local Community Celebrates Record-Breaking Charity Event</li>
+                <p>{{ other_news_content }}</p>
+                <!-- <ul>
+                    <li>{{ other_news_content }}</li>
                     <li>New Study Reveals Surprising Benefits of Daily Meditation</li>
                     <li>Unconventional Artist Transforms Trash into Stunning Sculptures</li>
                     <li>Innovative Startup Introduces Revolutionary Clean Energy Solution</li>
                     <li>Adventurous Traveler Discovers Hidden Gem in Remote Wilderness</li>
-                </ul>
+                </ul> -->
             </div>
             <div class="right-inner-section">
                 <img src="\static\advert.jpg" class="full-width">
