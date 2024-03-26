@@ -14,7 +14,7 @@ def index():
     sports_content = generate_sports(125)
     politics_content = generate_politics(125)
     main_story_body = generate_main_story(headline, 1900) #, main_story_body
-    other_news_content = generate_other_news(300)
+    other_news_content = generate_other_news(200)
 
     # Render HTML template with generated content
     return render_template('index.html', weather_content=weather_content, stocks_content=stocks_content, 
@@ -111,6 +111,9 @@ def generate_main_headline(max_characters):
     )
     generated_text = completion.choices[0].message.content
 
+    if (generated_text[0] == '\"') and (generated_text[len(generated_text) - 1] == '\"'):
+        generated_text = generated_text[1:len(generated_text) - 1]
+
     #headline, body = generated_text.split('@')
 
     # Truncate text if it exceeds the character limit
@@ -150,17 +153,22 @@ def generate_other_news(max_characters):
         messages=[
             {"role": "system", "content": "You are writing the body of the \"In Other News\" headlines section for a funny, spoofy newspaper in the future."},
             {"role": "user", "content": "User: "},
-            {"role": "system", "content": "Please write the \"In Other News\" headlines section, making the headlines ridiculus, almost clickbait-like, and hilarious. Write 5 headlines and put them in a bulleted list. Make it short, concise, and limit it to about 40 words."},
-        ],
+            {"role": "system", "content": "Please write the \"In Other News\" headlines section, making the headlines ridiculus, almost clickbait-like, and hilarious. Write 5 headlines and put them in a bulleted list, but use * as the bullet sign. Make the headlines short, concise, DO NOT USE EMOJIS, and limit it to about 40 words."},
+        ], 
         max_tokens=max_characters
     )
     generated_text = completion.choices[0].message.content
+
+    generated_text = generated_text.strip('*')
 
     # Truncate text if it exceeds the character limit
     # if len(generated_text) > max_characters:
     #     generated_text = generated_text[:max_characters] + '@'
 
-    return generated_text
+    headlines = generated_text.split('*')
+
+    return headlines
+
 
 if __name__ == '__main__':
     app.run(debug=True)

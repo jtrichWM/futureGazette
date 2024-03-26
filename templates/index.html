@@ -146,7 +146,11 @@
         <div class="right-section">
             <div class="right-inner-section">
                 <h3>In other news, <br></h3>
-                <p>{{ other_news_content }}</p>
+                <ul>
+                    {% for headline in other_news_content %}
+                        <li>{{ headline }}</li>
+                    {% endfor %}
+                </ul>
                 <!-- <ul>
                     <li>{{ other_news_content }}</li>
                     <li>New Study Reveals Surprising Benefits of Daily Meditation</li>
