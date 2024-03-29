@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input - Future Gazette</title>
+    <style>
+        body, html {
+            /* background-image: url('/static/paper.jpg');
+            background-size: cover; */
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .form-container {
+            width: 50%;
+            padding: 15%;
+            margin: auto;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+        select, input {
+            color: white;
+            background-color: black;
+            border: none;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 16px;
+        }
+
+        
+        .form-inner-container {
+            color: white;
+            background-color: black;
+            border: 2px solid black;
+            border-radius: 10px;
+            display: inline-block;
+            padding: 10px;
+            margin: 5px;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Future Gazette</h1>
+        <form action="/input" method="post">
+            
+            <div class="form-inner-container">
+                <label for="future_date">Future Date:</label>
+                <input type="date" id="future_date" name="future_date" required>
+            </div>
+            <br>
+
+
+            <div class="form-inner-container">
+                <label for="state_of_humanity">State of Humanity:</label>
+                <select id="state_of_humanity" name="state_of_humanity" required>
+                    <option value="Utopia">Utopia</option>
+                    <option value="Dystopia">Dystopia</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <br>
+    
+            <div class="form-inner-container">
+                <label for="new_superpower">New Superpower:</label>
+                <select id="new_superpower" name="new_superpower" required>
+                    <option value="Telekinesis">Telekinesis</option>
+                    <option value="Invisibility">Invisibility</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <br>
+    
+            <input class="form-inner-container" type="submit" value="Submit">
+            
+        </form>
+    </div>
+    
+    
+    
+    
+</body>
+</html>
