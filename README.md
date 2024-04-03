@@ -2,9 +2,8 @@
 
 Inputs:
 - Date
-- State of Humanity (Apocalyptic, Authoritarian Dystopic, Utopic, 
-Happily Governed by Aliens, etc.) (Max: 3 Options)
-- Superpower humans have adopted to have (x,y,z)
+- State of Humanity (Apocalyptic, Authoritarian Dystopic, or Utopic)
+- New Superpower (Telekinesis, Teleportation, Telepathy)
 
 Sections: 
 - Main Story (Middle)
@@ -14,5 +13,5 @@ Sections:
   - Sports
   - Politics
 - Right:
-  - Sidebar Story #1
-  - Sidebar Story #2
+  - "In Other News Headlines"
+  - Advert
