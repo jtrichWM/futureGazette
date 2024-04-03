@@ -18,9 +18,11 @@ def generate():
     # Pass form data to generating.html
     return render_template('generating.html', future_date=future_date_str, state_of_humanity=state_of_humanity, new_superpower=new_superpower)
 
-@app.route('/generating')
-def generating():
-    return render_template('generating.html')
+# @app.route('/generating')
+# def generating():
+#     return render_template('generating.html')
+
+# The date is ____, humanity is in an ____ state, and humans have evolved to have the superpower: ___. 
 
 def frontpage():
     #Generate content for each section

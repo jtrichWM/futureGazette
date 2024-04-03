@@ -34,14 +34,11 @@
 </head>
 <body>
     <div class="generation-box">
-        <p>Generating...</p>
-        <p>MUMBOJUMBOMUMBOJUMBOMUMBOJUMBOMUMBOJUMBOMUMBOJUMBO</p>
-        <p>{{ future_date }}</p>
-        <p>{{ state_of_humanity }}</p>
-        <p>{{ new_superpower }}</p>
+        <p id="loadingText">Generating...</p>
+        <p>The date is {{ future_date }}, humanity is in an {{ state_of_humanity }} state, and humans have evolved to have the superpower: {{ new_superpower }}.</p>
     </div>
 
-    <!-- <script>
+    <script>
         // Function to cycle through dots
         function cycleDots() {
             var loadingText = document.getElementById("loadingText");
@@ -55,6 +52,6 @@
         }
 
         setInterval(cycleDots, 750);
-    </script> -->
+    </script>
 </body>
 </html>
