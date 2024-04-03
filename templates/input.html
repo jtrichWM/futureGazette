@@ -6,8 +6,8 @@
     <title>Input - Future Gazette</title>
     <style>
         body, html {
-            /* background-image: url('/static/paper.jpg');
-            background-size: cover; */
+            background-image: url('/static/paper.jpg');
+            background-size: cover;
             height: 100%;
             overflow: hidden;
         }
@@ -24,32 +24,28 @@
 
         select, input {
             color: white;
-            background-color: black;
+            background-color: rgb(76, 76, 76);
             border: none;
             font-family: 'Times New Roman', Times, serif;
             font-size: 16px;
         }
-
         
         .form-inner-container {
             color: white;
-            background-color: black;
-            border: 2px solid black;
+            background-color: rgb(76, 76, 76);
+            border: 2px solid rgb(76, 76, 76);
             border-radius: 10px;
             display: inline-block;
             padding: 10px;
             margin: 5px;
         }
 
-
-
-
     </style>
 </head>
 <body>
     <div class="form-container">
         <h1>Future Gazette</h1>
-        <form action="/input" method="post">
+        <form id="inputForm" action="/generate" method="post">
             
             <div class="form-inner-container">
                 <label for="future_date">Future Date:</label>
@@ -57,13 +53,12 @@
             </div>
             <br>
 
-
             <div class="form-inner-container">
                 <label for="state_of_humanity">State of Humanity:</label>
                 <select id="state_of_humanity" name="state_of_humanity" required>
-                    <option value="Utopia">Utopia</option>
-                    <option value="Dystopia">Dystopia</option>
-                    <!-- Add more options as needed -->
+                    <option value="Apocalyptic">Apocalyptic</option>
+                    <option value="Authoritarian Dystopic">Authoritarian Dystopic</option>
+                    <option value="Utopic">Utopic</option>
                 </select>
             </div>
             <br>
@@ -72,8 +67,8 @@
                 <label for="new_superpower">New Superpower:</label>
                 <select id="new_superpower" name="new_superpower" required>
                     <option value="Telekinesis">Telekinesis</option>
-                    <option value="Invisibility">Invisibility</option>
-                    <!-- Add more options as needed -->
+                    <option value="Teleportation">Teleportation</option>
+                    <option value="Telepathy">Telepathy</option>
                 </select>
             </div>
             <br>
@@ -82,9 +77,17 @@
             
         </form>
     </div>
-    
-    
-    
+
+    <script>
+        document.getElementById('inputForm').addEventListener('submit', function(event) {
+            var selectedDate = new Date(document.getElementById('future_date').value);
+            var currentDate = new Date();
+            if (selectedDate <= currentDate) {
+                event.preventDefault();
+                alert('Please select a date in the future.');
+            }
+        });
+    </script>
     
 </body>
 </html>

@@ -1,11 +1,28 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from openai import OpenAI
+from datetime import datetime
 
 app = Flask(__name__)
 client = OpenAI()
 
 @app.route('/')
 def index():
+    return render_template('input.html')
+
+@app.route('/generate', methods=['POST'])
+def generate():
+    future_date_str = request.form['future_date']
+    state_of_humanity = request.form['state_of_humanity']
+    new_superpower = request.form['new_superpower']
+    
+    # Pass form data to generating.html
+    return render_template('generating.html', future_date=future_date_str, state_of_humanity=state_of_humanity, new_superpower=new_superpower)
+
+@app.route('/generating')
+def generating():
+    return render_template('generating.html')
+
+def frontpage():
     #Generate content for each section
     headline = generate_main_headline(50)
 
@@ -17,7 +34,7 @@ def index():
     other_news_content = generate_other_news(200)
 
     # Render HTML template with generated content
-    return render_template('index.html', weather_content=weather_content, stocks_content=stocks_content, 
+    return render_template('frontpage.html', weather_content=weather_content, stocks_content=stocks_content, 
                            sports_content=sports_content, politics_content=politics_content, 
                            main_story_headline=headline, main_story_body=main_story_body,
                            other_news_content=other_news_content) #, maind_story_body=main_story_body

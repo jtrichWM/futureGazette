@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generating - Future Gazette</title>
+    <style>
+        body, html {
+            background-color: #f0f0f0;
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .generation-box {
+            color: black;
+            background-color: rgb(167, 167, 167);
+            border: 2px solid black;
+            border-radius: 10px;
+            display: inline-block;
+            padding: 10px;
+            margin: 5px;
+            text-align: left;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="generation-box">
+        <p>Generating...</p>
+        <p>MUMBOJUMBOMUMBOJUMBOMUMBOJUMBOMUMBOJUMBOMUMBOJUMBO</p>
+        <p>{{ future_date }}</p>
+        <p>{{ state_of_humanity }}</p>
+        <p>{{ new_superpower }}</p>
+    </div>
+
+    <!-- <script>
+        // Function to cycle through dots
+        function cycleDots() {
+            var loadingText = document.getElementById("loadingText");
+            var dots = loadingText.innerHTML.match(/\./g); // Count existing dots
+
+            if (dots === null || dots.length < 3) {
+                loadingText.innerHTML += '.';
+            } else {
+                loadingText.innerHTML = "Generating"; // Reset text
+            }
+        }
+
+        setInterval(cycleDots, 750);
+    </script> -->
+</body>
+</html>
