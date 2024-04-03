@@ -107,14 +107,14 @@
             <h1>The Future Gazette</h1>
         </div>
         <div class="date-section">
-            <div class="date-inner-section"><h2>DoW,</h2></div>
-            <div class="date-inner-section"><h2>Month Day,</h2></div>
-            <div class="date-inner-section"><h2>Year</h2></div>
+            <div class="date-inner-section"><h2>{{future_date_dow}},</h2></div>
+            <div class="date-inner-section"><h2>{{future_date_month}} {{future_date_day}},</h2></div>
+            <div class="date-inner-section"><h2>{{future_date_year}}</h2></div>
         </div>
     </div>
     <div class="themecost-section">
         <div class="theme-section">
-            <h3>Society - Business - Politics - Food - Fashion - Weather - Sports</h3>
+            <h3>Society - Business - Politics - Food - Fashion - Weather - Sports - {{state_of_humanity}} - {{new_superpower}}</h3>
         </div>
         <div class="cost-section">
             <h3>56 Quibucks</h3>
@@ -151,13 +151,6 @@
                         <li>{{ headline }}</li>
                     {% endfor %}
                 </ul>
-                <!-- <ul>
-                    <li>{{ other_news_content }}</li>
-                    <li>New Study Reveals Surprising Benefits of Daily Meditation</li>
-                    <li>Unconventional Artist Transforms Trash into Stunning Sculptures</li>
-                    <li>Innovative Startup Introduces Revolutionary Clean Energy Solution</li>
-                    <li>Adventurous Traveler Discovers Hidden Gem in Remote Wilderness</li>
-                </ul> -->
             </div>
             <div class="right-inner-section">
                 <img src="\static\future.jpg" class="full-width">
