@@ -58,6 +58,10 @@
             margin: 5px;
         }
 
+        p {
+            margin: 0;
+        }
+
     </style>
 </head>
 <body>
@@ -92,6 +96,8 @@
             <br>
     
             <input class="form-inner-container" type="submit" value="Submit">
+            <p>The front page should take roughly 10 seconds to load,<br>
+                but loading times may vary.</p>
             
         </form>
     </div>
@@ -100,6 +106,15 @@
         document.getElementById('inputForm').addEventListener('submit', function(event) {
             var selectedDate = new Date(document.getElementById('future_date').value);
             var currentDate = new Date();
+            var selectedYear = selectedDate.getFullYear();
+            
+            //Check if the selected year is greater than 9999
+            if (selectedYear > 9999) {
+                event.preventDefault();
+                alert('Please select a year less than or equal to 9999.');
+            }
+            
+            //Check if the selected date is in the future
             if (selectedDate <= currentDate) {
                 event.preventDefault();
                 alert('Please select a date in the future.');
