@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request
 from openai import OpenAI
-from datetime import datetime
+from datetime import datetime, date
 from threading import Thread
+import random
 
 app = Flask(__name__)
 client = OpenAI()
@@ -25,8 +26,6 @@ def index():
 # # @app.route('/generating')
 # # def generating():
 # #     return render_template('generating.html')
-
-# The date is ____, humanity is in an ____ state, and humans have evolved to have the superpower: ___. 
 
 @app.route('/frontpage', methods=['POST'])
 def frontpage():
@@ -52,6 +51,7 @@ def frontpage():
     #Generate content for each section
     headline = generate_main_headline(50, full_date_str, state_of_humanity, new_superpower)
 
+    cost_content = get_cost(state_of_humanity)
     weather_content = generate_weather(125, full_date_str, state_of_humanity, new_superpower)
     stocks_content = generate_stocks(125, full_date_str, state_of_humanity, new_superpower)
     sports_content = generate_sports(125, full_date_str, state_of_humanity, new_superpower)
@@ -65,7 +65,7 @@ def frontpage():
                            main_story_headline=headline, main_story_body=main_story_body,
                            other_news_content=other_news_content,
                            future_date_year=future_date_year, future_date_month=future_date_month, future_date_day=future_date_day, 
-                           future_date_dow=future_date_dow,
+                           future_date_dow=future_date_dow, cost_content=cost_content,
                            state_of_humanity=state_of_humanity, new_superpower=new_superpower)
 
 def get_month_str(month_str):
@@ -128,9 +128,28 @@ def get_dow_str(dow_int):
     elif dow_int == 6:
         return "Sunday"
     
+def get_cost(state):
+    num_range = 100
+    suffix_arr = ["bucks", "credits", "dollars", "coins", "cash", "bills"]
+
+    num = random.randint(1, 100)
+
+    if state == "Apocalyptic":
+        apoc_arr = ["Sticks", "Bullets", "Rocks", "Bottlecaps", "Rations"]
+        
+        return str(num) + " " + random.choice(apoc_arr)
+    elif state == "Authoritarian Dystopic":
+        auth_prefix_arr = ["Leader", "Dictator", "Tyrant", "Regime", "Supreme"] 
+
+        return str(num) + " " + random.choice(auth_prefix_arr) + random.choice(suffix_arr)
+    elif state == "Utopic":
+        utopic_arr = ["Qui", "Hyper", "Nano", "Galactic", "Neo", "Ether"]
+    
+        return str(num) + " " + random.choice(utopic_arr) + random.choice(suffix_arr)
+    else:
+        return "FREE"
 
 def generate_weather(max_characters, date, state, superpower):
-    # Call OpenAI API to generate content for the specified topic with the specified character limit
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
@@ -145,7 +164,6 @@ def generate_weather(max_characters, date, state, superpower):
     return generated_text
 
 def generate_stocks(max_characters, date, state, superpower):
-    # Call OpenAI API to generate content for the specified topic with the specified character limit
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
@@ -160,7 +178,6 @@ def generate_stocks(max_characters, date, state, superpower):
     return generated_text
 
 def generate_sports(max_characters, date, state, superpower):
-    # Call OpenAI API to generate content for the specified topic with the specified character limit
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
@@ -175,7 +192,6 @@ def generate_sports(max_characters, date, state, superpower):
     return generated_text
 
 def generate_politics(max_characters, date, state, superpower):
-    # Call OpenAI API to generate content for the specified topic with the specified character limit
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
@@ -190,12 +206,11 @@ def generate_politics(max_characters, date, state, superpower):
     return generated_text
 
 def generate_main_headline(max_characters, date, state, superpower):
-    # Call OpenAI API to generate content for the specified topic with the specified character limit
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages = [
             {"role": "system", "content": f"You are writing the headline of front-page article for a funny, spoofy newspaper in the future. The date is {date}, humanity is in an {state} state, and humans have evolved to have the superpower: {superpower}."},
-            {"role": "user", "content": "User: "},  # Placeholder for user input, if any
+            {"role": "user", "content": "User: "},  
             {"role": "system", "content": f"Please write the headline for the front-page article, making the focus of the article something ridiculus, and drawing in themes from the fact that it's in the future. The date is {date}, humanity is in an {state} state, and humans have evolved to have the superpower: {superpower}. Make the headline short and concise."},
         ],
         max_tokens=max_characters
@@ -208,13 +223,11 @@ def generate_main_headline(max_characters, date, state, superpower):
     return generated_text
 
 def generate_main_story(headline, max_characters, date, state, superpower):
-    # Call OpenAI API to generate content for the specified topic with the specified character limit
-    
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages = [
             {"role": "system", "content": f"You are writing the front-page article for a funny, spoofy newspaper in the future. The date is {date}, humanity is in an {state} state, and humans have evolved to have the superpower: {superpower}."},
-            {"role": "user", "content": "User: "},  # Placeholder for user input, if any
+            {"role": "user", "content": "User: "}, 
             {"role": "system", "content": f"Now, please write the body of the front-page article with the headline \"{headline}\", making the article ridiculus and emphasizing that it's in the future. The date is {date}, humanity is in an {state} state, and humans have evolved to have the superpower: {superpower}. Only write the body of the article, make it short, concise, and limit it to about 250 words. Also there is no need for an intro."},
         ],
         max_tokens=max_characters
@@ -224,7 +237,6 @@ def generate_main_story(headline, max_characters, date, state, superpower):
     return generated_text
 
 def generate_other_news(max_characters, date, state, superpower):
-    # Call OpenAI API to generate content for the specified topic with the specified character limit
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
