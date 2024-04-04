@@ -103,10 +103,14 @@ def get_day_str(day_str):
     last_char = day_str[len(day_str) - 1]
 
     if last_char == '1':
+        if day_int == 11:
+            return str(day_int) + "th" 
         return str(day_int) + "st"
     if last_char == '2':
         return str(day_int) + "nd"
     if last_char == '3':
+        if day_int == 13:
+            return str(day_int) + "th" 
         return str(day_int) + "rd"
     else:
         return str(day_int) + "th"
