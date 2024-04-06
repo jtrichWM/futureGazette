@@ -11,22 +11,6 @@ client = OpenAI()
 def index():
     return render_template('input.html')
 
-# @app.route('/generate', methods=['POST'])
-# def generate():
-#     future_date_str = request.form['future_date']
-#     state_of_humanity = request.form['state_of_humanity']
-#     new_superpower = request.form['new_superpower']
-
-#     # Generate content asynchronously
-#     t = Thread(target=frontpage)
-#     t.start()
-    
-#     return render_template('generating.html', future_date=future_date_str, state_of_humanity=state_of_humanity, new_superpower=new_superpower)
-
-# # @app.route('/generating')
-# # def generating():
-# #     return render_template('generating.html')
-
 @app.route('/frontpage', methods=['POST'])
 def frontpage():
     # Get inputs from input.html form
